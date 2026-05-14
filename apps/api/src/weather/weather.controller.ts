@@ -1,7 +1,8 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { version } from 'node:os';
-import path from 'node:path';
+import { GeocodedLocationDto, WeatherResponseDto } from './dto/weather-response.dto';
+import { WeatherQueryDto } from './dto/weather-query.dto';
+import { WeatherService } from './weather.service';
 
 @ApiTags('weather')
 @Controller({ path: "api/v1/weather", version: '1' })

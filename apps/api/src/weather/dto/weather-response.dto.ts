@@ -60,7 +60,7 @@ export class WeatherAdvisoryDto implements WeatherAdvisory {
   @ApiProperty() detail!: string;
 }
 
-export class WeatherReportDto implements WeatherReport {
+export class WeatherResponseDto implements WeatherReport {
   @ApiProperty({ type: GeocodedLocationDto }) location!: GeocodedLocationDto;
   @ApiProperty({ enum: ['metric', 'imperial'] }) units!: 'metric' | 'imperial';
   @ApiProperty({ type: CurrentConditionsDto }) current!: CurrentConditionsDto;
