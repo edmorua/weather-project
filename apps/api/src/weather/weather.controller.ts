@@ -22,13 +22,6 @@ export class WeatherController {
 	@ApiOperation({ summary: 'Get current weather conditions for a location' })
 	@ApiOkResponse({ type: WeatherResponseDto })
 	getCurrentWeather(@Query() query: WeatherQueryDto): Promise<WeatherResponseDto> {
-		return this.weatherService.getCurrentWeather(query);
-	}
-
-	@Get('/forecast')
-	@ApiOperation({ summary: 'Get 5 day / 3 hour forecast for a location' })
-	@ApiOkResponse({ type: ForecastResponseDto })
-	getForecast(@Query() query: WeatherQueryDto): Promise<ForecastResponseDto> {
-		return this.weatherService.getForecast(query);
+		return this.weatherService.getReport(query);
 	}
 }
