@@ -5,7 +5,7 @@ import { WeatherQueryDto } from './dto/weather-query.dto';
 import { WeatherService } from './weather.service';
 
 @ApiTags('weather')
-@Controller({ path: "api/v1/weather", version: '1' })
+@Controller({ path: 'weather', version: '1' })
 export class WeatherController {
 
 	constructor(private readonly weatherService: WeatherService) {}
