@@ -7,7 +7,7 @@ import {
   GeocodedLocation,
   WeatherAdvisory,
   WeatherReport,
-} from '../domain/weather.types';
+} from '../utils/weather.types';
 
 export class GeocodedLocationDto implements GeocodedLocation {
   @ApiProperty() name!: string;
