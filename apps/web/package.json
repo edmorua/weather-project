@@ -1,9 +1,9 @@
 {
-  "name": "@palmetto-weather/web",
+  "name": "@weather-project/web",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Palmetto Weather web client — Vite + React + Tailwind SPA.",
+  "description": "Weather Project web client — Vite + React + Tailwind SPA.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
