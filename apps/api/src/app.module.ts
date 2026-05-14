@@ -11,7 +11,6 @@ import { WeatherModule } from './weather/weather.module';
 import { HealthModule } from './health/health.module';
 import { HealthController } from './health/health.controller';
 import { CacheModule } from './cache/cache.module';
-import { AnalyticsService } from './analytics/analytics.service';
 import { AnalyticsModule } from './analytics/analytics.module';
 
 @Module({
@@ -53,6 +52,6 @@ import { AnalyticsModule } from './analytics/analytics.module';
 		CacheModule,
 		AnalyticsModule,
 	],
-	providers: [ {provide: APP_GUARD, useClass: ThrottlerGuard}, AnalyticsService]
+	providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }]
 })
 export class AppModule {}
