@@ -12,7 +12,8 @@ import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
 async function bootstrap() {
 	const app = await NestFactory.create<NestExpressApplication>(AppModule, new ExpressAdapter(), { bufferLogs: true });
-	const logger = app.get(WINSTON_MODULE_NEST_PROVIDER)
+	const logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
+	app.useLogger(logger);
 	const configService = app.get(ConfigService);
 
 	app.use(helmet());
@@ -54,7 +55,7 @@ async function bootstrap() {
 
 	const port = configService.get("port", { infer: true });
 	await app.listen(port);
-	logger.log(`Application is running on: http://localhost:${port}/api`, 'docs at api/docs', 'Bootstrap');
+	logger.log(`Application is running on: http://localhost:${port}/api — docs at http://localhost:${port}/api/docs`, 'Bootstrap');
 }
 
 bootstrap().catch((error) => {

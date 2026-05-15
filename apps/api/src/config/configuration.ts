@@ -21,7 +21,7 @@ export interface AppConfig {
 export const loadConfig = (): AppConfig => {
 	return {
 		nodeEnv: process.env.NODE_ENV as 'development' | 'production' | 'test',
-		port: parseInt(process.env.PORT || '3000', 10),
+		port: parseInt(process.env.API_PORT || '3001', 10),
 		cors: {
 			origin: process.env.CORS_ORIGIN || '*',
 		},
@@ -34,8 +34,8 @@ export const loadConfig = (): AppConfig => {
     weatherTtlSeconds: parseInt(process.env.WEATHER_CACHE_TTL_SECONDS ?? '600', 10),
   	},
 		throttle: {
-			ttl: parseInt(process.env.THROTTLE_TTL || '60', 10), // default 60 seconds
-			limit: parseInt(process.env.THROTTLE_LIMIT || '100', 10), // default 100 requests per ttl
+			ttl: parseInt(process.env.THROTTLE_TTL_SECONDS || '60', 10),
+			limit: parseInt(process.env.THROTTLE_LIMIT || '100', 10),
 		},
 	};
 };
