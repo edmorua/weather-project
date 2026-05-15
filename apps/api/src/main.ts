@@ -1,6 +1,7 @@
 import { ValidationPipe, VersioningType } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
+import { ExpressAdapter, NestExpressApplication } from "@nestjs/platform-express";
 import { AppModule } from "./app.module";
 import helmet from "helmet";
 import { CustomExceptionFilter } from "./common/filters/custom-exception.filter";
@@ -10,7 +11,7 @@ import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule, { bufferLogs: true });
+	const app = await NestFactory.create<NestExpressApplication>(AppModule, new ExpressAdapter(), { bufferLogs: true });
 	const logger = app.get(WINSTON_MODULE_NEST_PROVIDER)
 	const configService = app.get(ConfigService);
 

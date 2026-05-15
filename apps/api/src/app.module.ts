@@ -9,7 +9,6 @@ import { Throttle, ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 import { APP_GUARD } from "@nestjs/core";
 import { WeatherModule } from './weather/weather.module';
 import { HealthModule } from './health/health.module';
-import { HealthController } from './health/health.controller';
 import { CacheModule } from './cache/cache.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 
@@ -17,6 +16,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
 	imports: [
 		ConfigModule.forRoot({
 			isGlobal: true,
+			envFilePath: ['.env', '../../.env'],
 			load: [loadConfig],
 			validate: validateEnv
 		}),
